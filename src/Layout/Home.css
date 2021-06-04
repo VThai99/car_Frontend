@@ -1,0 +1,158 @@
+.all {
+    height: 9434px;
+    background: black;
+    color: white;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.header {
+    padding-top: 53px;
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.contact {
+    margin-right: auto;
+    font-family: SF Pro Display;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #F2F2F2;
+}
+
+.about {
+    margin-left: auto;
+    font-family: SF Pro Display;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #F2F2F2;
+}
+
+.hero {
+    height: 970px;
+    width: 100%;
+    position: relative;
+    margin-top: 300px;
+}
+
+.hero_title {
+    top: -155px;
+    position: absolute;
+    font-family: Nympha Trial;
+    font-size: 220px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+.hero_img {
+    position: absolute;
+    width: 100%;
+    object-fit: contain;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.info_wr {
+    display: flex;
+    justify-content: center
+}
+
+.info_wr_child {
+    margin: 0px 40px;
+    text-align: center;
+}
+
+.title_info1 {
+    font-family: DM Mono;
+    font-size: 16px;
+}
+
+.title_info2 {
+    font-family: SF Pro Display;
+    font-size: 16px;
+}
+
+.content_info {
+    font-family: Nympha Trial;
+    font-size: 24px;
+}
+
+.img_1 {
+    margin-top: 200px;
+}
+
+.img_1 img {
+    width: 80%;
+    object-fit: contain;
+}
+
+.img_2 {
+    height: 970px;
+    width: 100%;
+    position: relative;
+    margin-top: 300px;
+}
+
+.img_2_title {
+    color: wheat;
+    font-family: Nympha Trial;
+    top: -135px;
+    position: absolute;
+    font-size: 220px;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.img_2 img {
+    position: absolute;
+    right: 0;
+}
+
+.img_3 img {
+    width: 100%;
+}
+
+.img-4 {
+    position: relative;
+    margin-top: 200px;
+}
+
+.img_4 {
+    position: absolute;
+    right: 0;
+}
+
+.img_5 {
+    position: absolute;
+    left: 0;
+    top: 500px;
+}
+
+.img_6 {
+    position: absolute;
+    right: 80px;
+    top: 1200px;
+}
+
+@media(max-width:1024px) {
+    .container {
+        width: 900px;
+    }
+}
