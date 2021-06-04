@@ -14,6 +14,7 @@ import About from './Layout/About';
 import Pluss from './Layout/Pluss';
 import Shopping from './pages/Shopping/Shopping';
 import Product from './pages/Product/Product';
+import Login from './pages/Login/Login';
 function App() {
   return (
       <Router>
@@ -23,6 +24,7 @@ function App() {
           <Route path='/blog'><Blog></Blog></Route>
           <Route path='/product/:id'><Product></Product></Route>
           <Route path='/contact'><Contact></Contact></Route>
+          <Route path='/login'><Login></Login></Route>
           <Route path='/'><Shopping></Shopping></Route>
         </Switch>
       </Router>

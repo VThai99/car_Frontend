@@ -1,0 +1,18 @@
+.login_form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20%;
+    height: 100vh;
+    #avatar_login{
+        color: rgba(255, 255, 255, 0.212);
+        background: url('../pages/Login/bg.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        
+    }
+    .btn_signIn{
+        margin: 10px 0px;
+    }
+}
