@@ -15,7 +15,12 @@ import {
 import "../../style/Login.scss";
 import { FaUserNinja } from "react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router";
+import { useCookies } from "react-cookie";
 const Login = () => {
+  const [cookies ,setCookies] = useCookies(['token', 'user_info', 'user_name']);
+  const history = useHistory();
   const CopyRightt = () => {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
@@ -26,11 +31,27 @@ const Login = () => {
       </Typography>
     );
   };
-  const [email, setEmail] = useState();
-  const [pass, setPass] = useState();
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
   useEffect(()=>{
-    console.log(email)
-  },[email])
+    console.log(cookies)
+  },[cookies])
+  const login_func = () =>{
+    const data = {
+      'email': email,
+      'password': pass
+    };
+    axios.post('http://127.0.0.1:8000/api/auth/login',data)
+    .then((res)=>{
+     setCookies("token", res.data.access_token, {path: '/'});
+     setCookies("user_info", res.data.data, {path: '/'});
+     setCookies("user_name", res.data.data.name);
+      history.push('/')
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -53,7 +74,7 @@ const Login = () => {
           autoComplete="email"
           autoFocus
           value={email}
-          onChange={() => {setEmail(email)}}
+          onChange={(e) => {setEmail(e.target.value)}}
         />
         <TextField
           variant="outlined"
@@ -64,7 +85,9 @@ const Login = () => {
           label="Password"
           type="password"
           id="password"
+          value={pass}
           autoComplete="current-password"
+          onChange={(e)=>{setPass(e.target.value)}}
         />
         <FormControlLabel
           control={<Checkbox value="remember" color="primary" />}
@@ -75,6 +98,7 @@ const Login = () => {
           color="primary"
           variant="contained"
           className="btn_signIn"
+          onClick={login_func}
         >
           Sign in
         </Button>

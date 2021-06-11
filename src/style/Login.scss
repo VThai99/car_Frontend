@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 20%;
+    padding-top: 20%;
     height: 100vh;
     #avatar_login{
         color: rgba(255, 255, 255, 0.212);
@@ -15,4 +15,7 @@
     .btn_signIn{
         margin: 10px 0px;
     }
+}
+.content{
+    min-height: calc(100vh - 220px);
 }

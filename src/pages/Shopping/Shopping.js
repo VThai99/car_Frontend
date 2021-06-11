@@ -16,6 +16,7 @@ import car3 from "./car3.jpg";
 import { useEffect, useState } from "react";
 import Main from "../../components/organisms/Main";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 const content = [
   {
     image: car1,
@@ -28,6 +29,7 @@ const content = [
   },
 ];
 const Shopping = () => {
+  const [cookies] = useCookies([""]);
   const formatMoney = (value) => {
    return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
@@ -36,8 +38,13 @@ const Shopping = () => {
   }
   const [listCar, setListCar] = useState([]);
     useEffect(()=>{
-           axios.get('http://127.0.0.1:8000/api/product')
+      const getProduct = async() => {
+        await axios.get('http://127.0.0.1:8000/api/product')
            .then((res)=>{setListCar(res.data)})
+           .catch((err)=> {console.log(err)})
+      }
+      getProduct()
+          
     },[])
   return (
     <Main>
@@ -56,7 +63,7 @@ const Shopping = () => {
         <section className="product_list_aa">
          {listCar.map((item)=>{
            return(
-            <article className="item_card">
+            <article className="item_card" key={item.id}>
             <div className="image_item">
               <img src={imageConfig(item.image)} alt="" />
               <p className="status_item">For sale</p>
@@ -94,6 +101,7 @@ const Shopping = () => {
          })}
         </section>
       </div>
+      <h1>{cookies.user_name}</h1>
     </Main>
   );
 };

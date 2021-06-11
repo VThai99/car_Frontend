@@ -2,22 +2,31 @@ import Main from "../../components/organisms/Main";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ImLocation2, ImEnlarge2 } from "react-icons/im";
-import { AiFillStar, AiFillEyeInvisible, AiOutlineHeart } from "react-icons/ai";
+import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { GiInjustice } from "react-icons/gi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Shopping/Shopping.css";
 import { useParams } from "react-router";
+import { FaShoppingCart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 const Product = () => {
+   const dispatch = useDispatch();
+   const [listCar, setListCar] = useState([]);
+   const [rating, setRating] = useState(null);
+   const [hover, setHover] = useState(null);
+   const {id} = useParams();
   const formatMoney = (value) => {
     return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
   };
   const imageConfig = (value) => {
     return "http://127.0.0.1:8000/" + value;
   };
-  const [listCar, setListCar] = useState([]);
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
-  const {id} = useParams();
+  const addToCard = (item) => {
+    dispatch({
+      type: "ADDTOCART",
+      newItem: item
+    });
+  };
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/api/category/${id}`).then((res) => {
       setListCar(res.data);
@@ -41,8 +50,8 @@ const Product = () => {
                     <img src={imageConfig(item.image)} alt="" />
                     <p className="status_item">For sale</p>
                     <div className="list_action_item">
-                      <button className="btn_action_item">
-                        <AiFillEyeInvisible></AiFillEyeInvisible>
+                      <button className="btn_action_item" onClick={()=>addToCard(item)}>
+                        <FaShoppingCart></FaShoppingCart>
                       </button>
                       <button className="btn_action_item">
                         <AiOutlineHeart></AiOutlineHeart>

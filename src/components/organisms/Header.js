@@ -20,6 +20,7 @@ const Header = () => {
     };
     getCate();
   }, []);
+
   return (
     <div className="first">
       <div className="container headerr">

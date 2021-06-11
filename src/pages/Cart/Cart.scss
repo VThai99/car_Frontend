@@ -1,0 +1,50 @@
+.image_product_cart{
+    img{
+        width: 100%;
+    }
+}
+.product_name_cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.product_money_cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart{
+    margin-top: 20px;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 0.5%;
+        bottom: -5%;
+        left: 50%;
+        transform: translate(-50%,0);
+        background: black;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 0;
+        height: 0;
+        bottom: -9%;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid black;
+    }
+}
+.total_money{
+    padding: 20px 0px;
+   
+    p{
+        text-align: right;
+    }
+}

@@ -1,6 +1,9 @@
 input[type="radio"]{
   display: none;
 }
+.active{
+  background: rgb(170, 124, 212);
+}
 .star{
   cursor: pointer;
   transition: color 200ms;
@@ -8,7 +11,22 @@ input[type="radio"]{
 .shopName {
   font-family: fantasy;
 }
-
+.shopName a{
+  position: relative;
+}
+.shopName a::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 20%;
+  background-color: #e74c3c;
+  transition: .25s;
+}
+.shopName a:hover::before{
+  width: 100%;
+}
 ul,
 li,
 ol,
@@ -49,10 +67,30 @@ a:hover{
   width: 90px;
   text-align: center;
   cursor: pointer;
-  transition: 1.5s all ease;
+  transition: .5s all ease;
   border: none;
   font-family: sans-serif;
   position: relative;
+  transition-delay: .25s;
+}
+.menu li{
+  position: relative;
+}
+.menu li::before{
+  content: "";
+  position: absolute;
+  width: 0;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  height: 10%;
+  background: blueviolet;
+  transition: 1s;
+}
+.menu li:hover::before{
+  width: 100%;
+  right: auto;
+  left: 0;
 }
 .listCate{
   display: flex;
@@ -73,6 +111,7 @@ a:hover{
   width: 150px;
   top: 24px;
   left: 0px;
+  padding: 0px;
   background: white;
 }
 .menu li:hover ul {
@@ -95,7 +134,7 @@ a:hover{
 }
 
 .item {
-  min-height: calc(100vh - 318px);
+  min-height: calc(100vh - 317px);
   margin: 50px auto;
   background: #f9f9f8;
 }

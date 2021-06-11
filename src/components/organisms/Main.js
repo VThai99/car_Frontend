@@ -7,7 +7,9 @@ const Main = (props) =>{
         <div>
             <Header></Header>
             <Menu></Menu>
-            {props.children}
+            <div className="content">
+                  {props.children}
+            </div>
             <Footer></Footer>
         </div>
     );
