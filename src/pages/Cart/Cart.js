@@ -6,7 +6,6 @@ import "./Cart.scss";
 const Cart = () => {
   const product = useSelector((state) => state.Cart);
   const [totalMoney, setTotalMoney] = useState(0);
-  const [quatityUpdate, setQuantityUpdate] = useState(0);
   const count = useSelector((state) => state.numberCart);
   const dispatch = useDispatch();
   const configImg = (value) => {
@@ -27,21 +26,26 @@ const Cart = () => {
   const removeItem = (id) => {
     dispatch({
       type: "REMOVE",
-      id: id
-    })
-  }
+      id: id,
+    });
+  };
   const formatMoney = (value) => {
     return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
   };
-  const updateQuantity = async (e,id) => {
-    const quantity = e.target.value
+  const updateQuantity = async (e, id) => {
+    if (e.target.value === "") {
+      e.target.value = 0;
+    }
+    let quantity = e.target.value;
+    if (quantity === "0") {
+      removeItem(id);
+    }
     dispatch({
       type: "UPDATEQUANTITY",
       id: id,
-      updateQuantity: quantity
-    })
-    
-  }
+      updateQuantity: quantity,
+    });
+  };
   return (
     <Main>
       <div className="container">
@@ -61,24 +65,31 @@ const Cart = () => {
                 <div>
                   <input
                     type="number"
+                    min="0"
                     defaultValue={item.quantity}
-                    onChange={(e) => {updateQuantity(e,item.id)}}
+                    onChange={(e) => {
+                      updateQuantity(e, item.id);
+                    }}
                   />
                 </div>
                 <div>Price: {formatMoney(item.price)}$</div>
-                <div>Total: {formatMoney(item.price * item.quantity)}$</div>
+                <div>Total: {formatMoney(item.total)}$</div>
                 <Button
                   color="secondary"
                   variant="contained"
-                  onClick={()=>removeItem(item.id)}
-                >Remove</Button>
+                  onClick={() => removeItem(item.id)}
+                >
+                  Remove
+                </Button>
               </div>
             </div>
           );
         })}
       </div>
       <div className="container">
-        <div className="total_money"><p>All Money: {formatMoney(totalMoney)}$</p></div>
+        <div className="total_money">
+          <p>All Money: {formatMoney(totalMoney)}$</p>
+        </div>
       </div>
     </Main>
   );

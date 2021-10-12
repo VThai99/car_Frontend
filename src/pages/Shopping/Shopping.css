@@ -1,6 +1,4 @@
-input[type="radio"]{
-  display: none;
-}
+
 .active{
   background: rgb(170, 124, 212);
 }
@@ -163,18 +161,21 @@ a:hover{
   opacity: .5;
 }
 .image_item:hover .list_action_item{
-    display: flex;
+    transform: rotateX(360deg) scale(1);
+    opacity: 1;
 }
 .list_action_item {
   position: absolute;
   left: 0;
+  opacity: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  transform: rotateX(0deg) scale(0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  transition: 1s;
 }
 .btn_action_item {
   background: transparent;
@@ -182,12 +183,15 @@ a:hover{
   padding: 10px;
   margin: 0px 5px;
   color: black;
-  transition: .75s;
+  transition: background .75s,color .75s,border .75s, scale .1s;
 }
 .btn_action_item:hover{
     background: red;
     color: white;
     border: red solid .5px;
+}
+.btn_action_item:active{
+  transform: scale(.9);
 }
 
 .status_item {
@@ -292,6 +296,9 @@ ul li{
     font-family: Sofia ;
     font-size: 24px;
     padding-bottom: 10px;
+}
+.list_choice_footer{
+  padding: 0;
 }
 .list_choice_footer li{
     font-size: 18px;

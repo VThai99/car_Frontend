@@ -2,18 +2,18 @@ import Main from "../../components/organisms/Main";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ImLocation2, ImEnlarge2 } from "react-icons/im";
-import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { GiInjustice } from "react-icons/gi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Shopping/Shopping.css";
 import { useParams } from "react-router";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import Rate from "../../components/atoms/Rate/Rate";
 const Product = () => {
    const dispatch = useDispatch();
    const [listCar, setListCar] = useState([]);
-   const [rating, setRating] = useState(null);
-   const [hover, setHover] = useState(null);
+
    const {id} = useParams();
   const formatMoney = (value) => {
     return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
@@ -72,29 +72,7 @@ const Product = () => {
                     </p>
                   </div>
                   <div className="about_item d-flex justify-content-between">
-                    <div className="star_item">
-                      {[...Array(5)].map((star, i) => {
-                          const ratingValue = i + 1;
-                          return (
-                            <label key={i}>
-                              <input
-                                type='radio'
-                                name='rating'
-                                value={ratingValue}
-                                onClick={()=> setRating(ratingValue)}
-                              >
-                              </input>
-                              <AiFillStar
-                                className='star'
-                                color={ratingValue <=(hover||rating) ? "#ffc107" : "black"}
-                                size={20}
-                                onMouseEnter={()=>setHover(ratingValue)}
-                                onMouseLeave={()=>setHover(null)}></AiFillStar>
-                            </label>
-                          )
-                      }
-                      )}
-                    </div>
+                    <Rate id={item.id}></Rate>
                     <div className="price_item">${formatMoney(item.price)}</div>
                   </div>
                 </article>

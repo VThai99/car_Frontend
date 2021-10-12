@@ -12,7 +12,7 @@ const Menu = () => {
         <label htmlFor="menu-toggler" />
         <ul>
           <li className="menu-item">
-          <Link to='/login'><AiOutlineHeart></AiOutlineHeart></Link>
+          <Link to='/heart'><AiOutlineHeart></AiOutlineHeart></Link>
           </li>
           <li className="menu-item">
           <Link to='/cart'><FaShoppingCart></FaShoppingCart>{count}</Link>
@@ -27,7 +27,7 @@ const Menu = () => {
           <Link to='/login'><FaUserNinja></FaUserNinja></Link>
           </li>
           <li className="menu-item">
-          <Link to='/login'><GiNinjaStar></GiNinjaStar></Link>
+          <Link to='/ninja'><GiNinjaStar></GiNinjaStar></Link>
           </li>
         </ul>
       </nav>

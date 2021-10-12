@@ -1,0 +1,497 @@
+@import url("https://fonts.googleapis.com/css2? family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2? family=Montserrat:wght@600&display=swap");
+$ipad: 768px;
+$iphone6: 414px;
+$iphone5: 320px;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.heart_hero {
+  height: 483px;
+  background: url("./images/hero.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-family: Montserrat;
+  @media screen and (max-width: $iphone6) {
+    background: transparent;
+  }
+  .heart_hero_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding-top: 3%;
+    @media screen and (max-width: $iphone6) {
+      padding-top: 12%;
+      color: black;
+    }
+    p:nth-child(1) {
+      font-weight: bold;
+      font-size: 24px;
+      color: #f7f7f7;
+      letter-spacing: 0.1px;
+      @media screen and (max-width: $ipad) {
+        font-size: 20px;
+      }
+      @media screen and (max-width: $iphone6) {
+        font-size: 16px;
+        color: #737373;
+      }
+    }
+    p:nth-child(2) {
+      font-family: Poppins;
+      font-weight: bold;
+      font-size: 58px;
+      letter-spacing: 0.2px;
+      line-height: 80px;
+      text-align: center;
+      @media screen and (max-width: $ipad) {
+        font-size: 30px;
+        line-height: 45px;
+      }
+      @media screen and (max-width: $iphone6) {
+        font-size: 34px;
+        padding: 20px 0px;
+      }
+    }
+    p:nth-child(3) {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      text-align: center;
+      height: 96px;
+      color: #f7f7f7;
+      line-height: 38px;
+      @media screen and (max-width: $ipad) {
+        height: auto;
+        line-height: 75px;
+      }
+      @media screen and (max-width: $iphone6) {
+        font-size: 24px;
+        line-height: 31px;
+        color: #737373;
+      }
+    }
+    .heart_hero_button {
+      z-index: 1;
+      @media screen and (max-width: $iphone6) {
+        display: flex;
+        flex-direction: column;
+        margin-top: 35px;
+      }
+      button {
+        margin: 7px;
+        height: 68px;
+        width: 236px;
+        font-weight: bold;
+        font-size: 24px;
+        letter-spacing: 0.1px;
+        border-radius: 50px;
+        background: transparent;
+        transition: 0.25s;
+        border: 0.5px solid red;
+        color: red;
+        outline: none;
+        &:hover {
+          background: red;
+          color: white;
+        }
+      }
+    }
+  }
+}
+.heart_hero_2 {
+  position: relative;
+  height: 500px;
+  @media screen and (max-width: $ipad) {
+    height: 300px;
+  }
+  @media screen and (max-width: $iphone6) {
+    height: 470px;
+  }
+
+  img {
+    position: absolute;
+    top: -7rem;
+    object-fit: contain;
+    width: 42%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    filter: drop-shadow(50px 30px 150px rgba(46, 4, 4, 0.21));
+    @media screen and (max-width: $iphone6) {
+      width: 100%;
+      top: 0;
+    }
+    @media (max-width: $iphone5)
+    {
+      top: 50px;
+    }
+  }
+}
+.hr {
+  width: 50%;
+  border: 1px solid #e4e4e4;
+}
+
+.heart_hero_3 {
+  text-align: center;
+  font-family: Montserrat;
+
+  img {
+    width: 50%;
+    filter: drop-shadow(50px 30px 150px rgba(46, 4, 4, 0.15));
+  }
+  .heart_hero_3_center {
+    margin-bottom: 130px;
+    @media screen and (max-width: $ipad) {
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: $iphone6) {
+      flex-direction: column-reverse;
+    }
+  }
+  .heart_hero_3_tittle {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 44px;
+    padding: 40px 0px;
+    @media screen and (max-width: $ipad) {
+      font-size: 30px;
+    }
+  }
+  .heart_hero_3_content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (max-width: $iphone6) {
+      text-align: center;
+    }
+    p:nth-child(1) {
+      color: #fa4a0c;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: bold;
+      @media screen and(max-width: $ipad) {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+    p:nth-child(2) {
+      color: #252b42;
+      letter-spacing: 0.2px;
+      line-height: 57px;
+      font-size: 40px;
+      font-weight: bold;
+      @media screen and(max-width: $ipad) {
+        line-height: 40px;
+        font-size: 25px;
+      }
+    }
+    p:nth-child(3) {
+      font-weight: 500;
+      font-size: 24px;
+      color: #737373;
+      letter-spacing: 0.2px;
+      line-height: 38px;
+      @media screen and(max-width: $ipad) {
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+  }
+  .heart_hero_3_center_2 {
+    margin-bottom: 130px;
+    @media screen and (max-width: $ipad) {
+      margin-bottom: 40px;
+    }
+  }
+  .heart_hero_3_content_2 {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (max-width: $iphone6) {
+      align-items: center;
+    }
+    .content_2 {
+      text-align: left;
+      @media screen and (max-width: $iphone6) {
+        text-align: center;
+      }
+      p:nth-child(1) {
+        color: #fa4a0c;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: bold;
+        @media screen and(max-width: $ipad) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+      p:nth-child(2) {
+        color: #252b42;
+        letter-spacing: 0.2px;
+        line-height: 57px;
+        font-size: 40px;
+        font-weight: bold;
+        @media screen and(max-width: $ipad) {
+          line-height: 40px;
+          font-size: 25px;
+        }
+      }
+      p:nth-child(3) {
+        font-weight: 500;
+        font-size: 24px;
+        color: #737373;
+        letter-spacing: 0.2px;
+        line-height: 38px;
+        @media screen and(max-width: $ipad) {
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+.heart_near_footer {
+  background: url("./images/footer_img.png");
+  height: 509px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: $ipad) {
+    height: 350px;
+  }
+  @media screen and (max-width: $iphone6) {
+    background: #252b42;
+    height: 430px;
+  }
+  p:first-child {
+    font-size: 40px;
+    letter-spacing: 0.2px;
+    line-height: 57px;
+    font-weight: bold;
+    @media (max-width: $ipad) {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    @media screen and (max-width: $iphone6) {
+      color: #ffffff;
+      text-align: center;
+      font-size: 40px;
+    }
+  }
+  p:nth-child(2) {
+    letter-spacing: 0.2px;
+    line-height: 38px;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 30px 0px;
+    @media (max-width: $ipad) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: $iphone6) {
+      color: #bdbdbd;
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+  .heart_neart_footer_button {
+    margin-top: 50px;
+    @media (max-width: $iphone5)
+    {
+      margin-top: 0;
+    }
+    button {
+      background: transparent;
+      border-radius: 10px;
+      outline: none;
+      color: white;
+      border: 0.5px solid white;
+      padding: 18px 31px;
+      margin: 0 8px;
+      transition: 0.25s;
+      letter-spacing: 0.2px;
+      font-size: 16px;
+      font-weight: bold;
+        @media (max-width: $iphone5){
+          padding: 12px 24px;
+        }
+      &:hover {
+        background: #fa4a0c;
+      }
+    }
+  }
+}
+
+.heart_footer {
+  .heart_footer_content {
+    @media screen and (max-width: $iphone6) {
+      flex-direction: column;
+      align-items: center;
+    }
+    img {
+      width: 100%;
+      object-fit: scale-down;
+      @media (max-width: $ipad) {
+        width: 50%;
+      }
+      @media screen and (max-width: $iphone6) {
+        display: none;
+      }
+    }
+    .col-md-4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .heart_footer_icon {
+      span {
+        color: #fa4a0c;
+        font-size: 36px;
+        @media (max-width: $ipad) {
+          font-size: 20px;
+        }
+        @media (max-width: $iphone6) {
+          font-size: 30px;
+        }
+      }
+      span:nth-child(2) {
+        margin: 0px 24px;
+      }
+    }
+    .col-md-4:nth-child(3) {
+      text-align: right;
+      color: #5c5c5c;
+      font-weight: bold;
+      letter-spacing: 0.1px;
+      font-size: 12px;
+      font-family: Roboto;
+      @media (max-width: $ipad) {
+        font-size: 9px;
+      }
+      @media screen and (max-width: $iphone6) {
+      }
+    }
+  }
+}

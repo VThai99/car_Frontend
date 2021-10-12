@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT, ADDITEM, PLUS, ADDTOCART, REMOVE, UPDATEQUANTITY, updatequantity } from "../actions"
+import {ADDTOCART, REMOVE, UPDATEQUANTITY } from "../actions"
 
 const countLocalStorage = JSON.parse(localStorage.getItem("count") || 0)
 const cart = JSON.parse(localStorage.getItem("cart") || "[]")
@@ -18,7 +18,8 @@ function reducer(state = intiCount, action) {
                     name: action.newItem.name,
                     price: action.newItem.price,
                     image: action.newItem.image,
-                    address: action.newItem.address
+                    address: action.newItem.address,
+                    total: action.newItem.price
                 }
                 state.Cart.push(cart);
             }
@@ -28,6 +29,7 @@ function reducer(state = intiCount, action) {
                     if(item.id === action.newItem.id)
                     {
                         state.Cart[key].quantity++;
+                        state.Cart[key].total = state.Cart[key].price *   state.Cart[key].quantity;
                         check=true;
                     }
                     return 'ok';
@@ -39,7 +41,8 @@ function reducer(state = intiCount, action) {
                         name: action.newItem.name,
                         price: action.newItem.price,
                         image: action.newItem.image,
-                        address: action.newItem.address
+                        address: action.newItem.address,
+                        total: action.newItem.price
                     }
                     state.Cart.push(cart);
                 }
@@ -49,29 +52,23 @@ function reducer(state = intiCount, action) {
                numberCart: state.numberCart + 1
             }
         case UPDATEQUANTITY :
-            const oldQuantity = 0;
+            let count = 0;
+            let updateQuantity = parseInt(action.updateQuantity)
             state.Cart.map((item,key)=> {
                 if(item.id === action.id)
                 {
-                  console.log(item)
-                    state.Cart[key].quantity = parseInt(action.updateQuantity);
+                    state.Cart[key].quantity = updateQuantity;
+                    state.Cart[key].total = state.Cart[key].price  *  state.Cart[key].quantity;
                 }
+                return "ok"
             })
-            console.log(oldQuantity)
+            state.Cart.map((item)=> {
+                count += item.quantity;
+                return count 
+            })
             return {
                 ...state,
-            }
-        case ADDITEM :
-            return{
-                array: [...state.array, action.newItem]
-            }
-        case INCREMENT:
-            return{
-                count: state.count + 1
-            }
-        case DECREMENT:
-            return{
-                count: state.count - 1
+                numberCart: count
             }
         case REMOVE:
             const numberMinus = [];
@@ -86,10 +83,6 @@ function reducer(state = intiCount, action) {
                 ...state,
                 Cart: state.Cart.filter(item => item.id !== action.id),
                 numberCart: state.numberCart - numberMinus[0].quantity
-            }
-        case PLUS:
-            return{
-                all: parseInt(action.a) + parseInt(action.b)
             }
         default:
             return state;
